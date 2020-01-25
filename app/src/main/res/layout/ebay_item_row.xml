@@ -19,7 +19,7 @@
     <TextView
         android:id="@+id/itemNameTextView"
         android:layout_width="252dp"
-        android:layout_height="43dp"
+        android:layout_height="69dp"
         android:layout_marginTop="15dp"
         android:text="Item name"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,8 +49,8 @@
 
     <TextView
         android:id="@+id/sellerTextView"
-        android:layout_width="103dp"
-        android:layout_height="29dp"
+        android:layout_width="120dp"
+        android:layout_height="35dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"

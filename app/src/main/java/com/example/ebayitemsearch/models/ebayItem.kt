@@ -10,7 +10,11 @@ data class ItemSummary(
     val title: String,
     val image: Image,
     val price: Price,
-    val seller: Seller
+    val seller: Seller,
+    val condition: String,
+    val shippingOptions: List<ShippingOptions>?,
+    val itemWebUrl: String
+
 )
 
 data class Image(
@@ -26,4 +30,14 @@ data class Seller(
     val username: String,
     val feedbackPercentage: String,
     val feedbackScore: Int
+)
+
+data class ShippingOptions(
+    val shippingCostType: String,
+    val shippingCost: ShippingCost
+)
+
+data class ShippingCost(
+    val value: String,
+    val currency: String
 )
