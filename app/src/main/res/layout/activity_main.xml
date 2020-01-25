@@ -8,24 +8,27 @@
 
     <EditText
         android:id="@+id/itemSearchText"
-        android:layout_width="314dp"
-        android:layout_height="55dp"
+        android:layout_width="319dp"
+        android:layout_height="58dp"
         android:ems="10"
         android:hint="Enter item here"
         android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/searchButton"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/searchButton"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
         android:background="#1A6FB1"
-        android:text="Button"
+        android:text="@android:string/search_go"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/itemSearchText"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -34,6 +37,64 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/acceptReturnsButton" />
+
+    <ProgressBar
+        android:id="@+id/spinningIndicator"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="60dp"
+        android:layout_height="58dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/loadMoreIndicator"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/freeShippingButton"
+        android:layout_width="125dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:background="#1A6FB1"
+        android:text="Free shipping"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/itemSearchText" />
+
+    <Button
+        android:id="@+id/acceptReturnsButton"
+        android:layout_width="125dp"
+        android:layout_height="38dp"
+        android:background="#1A6FB1"
+        android:text="Accept Returns"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/button5"
+        app:layout_constraintStart_toEndOf="@+id/freeShippingButton"
+        app:layout_constraintTop_toBottomOf="@+id/itemSearchText" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="135dp"
+        android:layout_height="38dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:background="#1A6FB1"
+        android:text="Return Accepted"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/itemSearchText" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

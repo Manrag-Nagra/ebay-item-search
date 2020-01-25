@@ -39,7 +39,7 @@ class ebay_item_adapter(private val result: List<ItemSummary>): RecyclerView.Ada
                     holder.view.shippingTextView.text = ""
                 } else {
                     holder.view.shippingTextView.text =
-                        shippingIndex.shippingCost.value + shippingIndex.shippingCost.currency
+                        "+ " + shippingIndex.shippingCost.value + shippingIndex.shippingCost.currency
                 }
             }
         }
@@ -48,8 +48,10 @@ class ebay_item_adapter(private val result: List<ItemSummary>): RecyclerView.Ada
         holder.view.feedbackTextView.text = item.seller.feedbackPercentage + "%"
 
 
-        val iconImage = holder.view.imageView
-        Picasso.get().load(item.image.imageUrl).into(iconImage);
+        if(item.image != null) {
+            val iconImage = holder.view.imageView
+            Picasso.get().load(item.image.imageUrl).into(iconImage)
+        }
     }
 
 }
