@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.annotation.ColorInt
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ebayitemsearch.adapter.ebay_item_adapter
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     var noMoreItems = false
     var listofItems: MutableList<ItemSummary> = ArrayList()
     var offset = 0
-    var filter = ""
+    var filterName: MutableList<String> = ArrayList()
 
     lateinit var layoutManager: LinearLayoutManager
 
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
         //When user click on search
         searchButton.setOnClickListener {
-            filter = ""
+            filterName = ArrayList()
             offset = 0
             noMoreItems = false
             spinningIndicator.visibility = View.VISIBLE
@@ -74,14 +75,70 @@ class MainActivity : AppCompatActivity() {
         })
 
 
-        //When user clicks filter buttons
+        //When user clicks free shipping button
         freeShippingButton.setOnClickListener {
-            filter = "maxDeliveryCost:0"
-            offset = 0
-            noMoreItems = false
-            spinningIndicator.visibility = View.VISIBLE
-            fetchJSON()
+            if(freeShippingButton.isSelected){
+                freeShippingButton.setBackgroundColor(Color.parseColor("#1A6FB1"))
+                freeShippingButton.isSelected = false
+                offset = 0
+                noMoreItems = false
+                filterName.remove("maxDeliveryCost:0")
+                fetchJSON()
+
+            } else {
+                freeShippingButton.setBackgroundColor(Color.RED)
+                freeShippingButton.isSelected = true
+                filterName.add("maxDeliveryCost:0")
+                offset = 0
+                noMoreItems = false
+                spinningIndicator.visibility = View.VISIBLE
+                fetchJSON()
+            }
         }
+
+        //When user clicks accept returns buttons
+        acceptReturnsButton.setOnClickListener {
+            if(acceptReturnsButton.isSelected){
+                acceptReturnsButton.setBackgroundColor(Color.parseColor("#1A6FB1"))
+                acceptReturnsButton.isSelected = false
+                offset = 0
+                noMoreItems = false
+                filterName.remove("returnsAccepted:true")
+                fetchJSON()
+
+            } else {
+                acceptReturnsButton.setBackgroundColor(Color.RED)
+                acceptReturnsButton.isSelected = true
+                filterName.add("returnsAccepted:true")
+                offset = 0
+                noMoreItems = false
+                spinningIndicator.visibility = View.VISIBLE
+                fetchJSON()
+            }
+        }
+
+        //When user clicks accept returns buttons
+        itemInCanadaButton.setOnClickListener {
+            if(itemInCanadaButton.isSelected){
+                itemInCanadaButton.setBackgroundColor(Color.parseColor("#1A6FB1"))
+                itemInCanadaButton.isSelected = false
+                offset = 0
+                noMoreItems = false
+                filterName.remove("itemLocationCountry:CA")
+                fetchJSON()
+
+            } else {
+                itemInCanadaButton.setBackgroundColor(Color.RED)
+                itemInCanadaButton.isSelected = true
+                filterName.add("itemLocationCountry:CA")
+                offset = 0
+                noMoreItems = false
+                spinningIndicator.visibility = View.VISIBLE
+                fetchJSON()
+            }
+        }
+
+
 
     }
 
@@ -101,8 +158,12 @@ class MainActivity : AppCompatActivity() {
 
         val api = retrofit.create(ApiService::class.java)
 
+
+        var filtered = filterName.joinToString(separator = ",")
+        println(filtered)
+
         //fetch items
-        api.fetchEbayItem(itemSearchText.text.toString(), offset, filter).enqueue(object: Callback<Item> {
+        api.fetchEbayItem(itemSearchText.text.toString(), offset, filtered).enqueue(object: Callback<Item> {
             override fun onResponse(call: Call<Item>, response: Response<Item>) {
 
                 loadMoreIndicator.visibility = View.GONE

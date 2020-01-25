@@ -81,18 +81,18 @@
         android:background="#1A6FB1"
         android:text="Accept Returns"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toStartOf="@+id/button5"
+        app:layout_constraintEnd_toStartOf="@+id/itemInCanadaButton"
         app:layout_constraintStart_toEndOf="@+id/freeShippingButton"
         app:layout_constraintTop_toBottomOf="@+id/itemSearchText" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/itemInCanadaButton"
         android:layout_width="135dp"
         android:layout_height="38dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:background="#1A6FB1"
-        android:text="Return Accepted"
+        android:text="Items located in Canada"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/itemSearchText" />
