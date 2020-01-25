@@ -1,0 +1,20 @@
+package com.example.ebayitemsearch.apiservice
+
+import com.example.ebayitemsearch.models.Item
+import retrofit2.http.GET
+import retrofit2.Call
+import retrofit2.http.Headers
+import retrofit2.http.Path
+import retrofit2.http.Query
+
+interface ApiService {
+    @Headers(
+        "Accept: application/json",
+        "Authorization:Bearer v^1.1#i^1#f^0#p^1#I^3#r^0#t^H4sIAAAAAAAAAOVYbWwTZRxf125zgfEiQwbuQz0gGZprn7teu/akJYW1Wcm6drQOWcLL07vnuhv3lrsrWzEmZQYwMQEzBY1K2AcTxER5U6KYaAzhJTIQSfATxggq8o1EIx8WxbtbGd0k42WNNLFfmvs//+f//P6/3///PM8dKNTWP7ujfcetBltd9XABFKptNmIGqK+teW6WvXpRTRUocbANF5YUHIP235ZrUBQUeg3SFFnSkHNAFCSNtoxBLKdKtAw1XqMlKCKN1hk6FY530KQL0Ioq6zIjC5gz1hbEOBZxMBBgMn6K8ULKZ1ilOzHTchBjOT8CfspHBLw+CCFhjGtaDsUkTYeSHsRIQAIcEDjpTQNAUyTtIV1+T6AHc3YjVeNlyXBxASxkwaWtuWoJ1qmhQk1Dqm4EwUKxcDSVCMfaIp3p5e6SWKEiDykd6jlt4tMqmUXObijk0NTLaJY3ncoxDNI0zB0aW2FiUDp8B8wjwLeoZjkCAdab8bV6SOjze8pCZVRWRahPjcO08CzOWa40knRez9+PUYONTB9i9OJTpxEi1uY0/7pyUOA5HqlBLLIyvC6cTGKhOJSkFC9lccVAKkt4ck0bHmBgKxvwIxanSMj6mICnuMxYrCLJk9ZZJUssb1KmOTtlfSUyMKPJzHhKmDGcElJCDXO6iafUjxxnkOoxJR3TMKf3SqaqSDRocFqP9+d/fLauq3wmp6PxCJMHLIKCGFQUnsUmD1qVWCyeAS2I9eq6Qrvd/f39rn6PS1azbhIAwv1ivCPF9CIRYpav2eumP3//CThvpcIgY6bG03peMbAMGJVqAJCyWIgCPh9FFXmfCCs02fovQ0nO7on9UK7+8BrbjJ/ykBkAGJ8vU5b+CBVL1G3iQBmYx0Wobka6IkAG4YxRZzkRqTxLe7wc6fFzCGd9AQ6nAhyHZ7ysDyc4hABCmQwT8P9/2uRBCz2FGBXpZar0MlW5tzcS6ezwswk3kWUTQn9fdm2koz2f6O+Iiu6t8SwV7+5oS3vylMYEH7QX7p08IysoKQs8k6+8XveobBKqej6FBMEwTCtRzUy0skQ252tGAKjwLrOtXYwsumVo7OemaaOFeFo5hxUlJoo5HWYEFCvXXv5Y9vF7pscb95yKysnQb0xInh27oLgsNV3aFsalIk3OqcbdzJUwT+y0vBlJxg6oq7IgILWbmLbQj0Nfs9en4OOhjopHy7yct5TKqWxG4I0C2lhpmf0HevKwwk5iwtsaCBBkwEtOK69VlqLpfKWdQe2ypiP2QVJzrHjIC7V74st9qMr6EYO2T8Gg7Ui1zQbcYCmxGDxTa3/BYZ+5SON15OIh59L4rGS8s6rItRnlFcir1bU2fujSzsslnxOG14Om8Q8K9XZiRsnXBdB8d6SGmL2gwaSE9AJAkR6yByy+O+ognnI0Dl2d00W+2xT9IPNnX0/wl7NPRC8eAQ3jTjZbTZVj0FY1V9pWd+LC6M3mofaqwxx58eoAfgpnnx66vnbPudZTS0+f3LV/+YdbF9i33PIdor6c/2t1+6xjn59ven7dW5Hz323YvX9DMkJ9/8PHq7vf7Ht9pKUpPvLy7LlfzPloybXLA/VvXFvXePvKruhqjN5//vLCZeShxtu/F0ZPvyQq8b9r6e3H5+05Jxyvv7Dm1Zkr9qH3Tj2ZvbT1xxvqH/NP7hzet/BMZ/OBgwH3mde+HdkU6an75J3EerCt66fR4++nG7vos+2Nuw9Kzb4W+q+DdTdbP8uM2F+p/uYoaD7asuzG9q+OHWjuPeFIHm6o8chfv90wul68PntTVG/5eUFhb5hS5t1KnvHPmTvryvCYfP8AeLCEaegRAAA=",
+        "Content-Type: application/json",
+        "X-EBAY-C-MARKETPLACE-ID: EBAY_CA"
+    )
+    @GET("buy/browse/v1/item_summary/search")
+    fun fetchEbayItem(@Query("q") item: String): Call<Item>
+
+}
