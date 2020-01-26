@@ -48,11 +48,15 @@ class MainActivity : AppCompatActivity() {
 
         //When user click on search
         searchButton.setOnClickListener {
-            filterName = ArrayList()
-            offset = 0
-            noMoreItems = false
-            spinningIndicator.visibility = View.VISIBLE
-            fetchJSON()
+            if(itemSearchText.text.toString() != "") {
+                filterName = ArrayList()
+                offset = 0
+                noMoreItems = false
+                spinningIndicator.visibility = View.VISIBLE
+                fetchJSON()
+            } else {
+                createToast("Please enter an item.")
+            }
         }
 
 
@@ -176,7 +180,7 @@ class MainActivity : AppCompatActivity() {
                 val responseJson = response.body()
 
                 //check to see if response is null
-                if(responseJson != null) {
+                if(responseJson?.itemSummaries != null) {
 
                     if(offset > 0 && responseJson.itemSummaries.last() != listofItems.last()){
                         listofItems.addAll((responseJson.itemSummaries))
@@ -193,6 +197,8 @@ class MainActivity : AppCompatActivity() {
                     //send data to adapter
                     listofItems = responseJson.itemSummaries
                     itemRecycleView.adapter = ebay_item_adapter(listofItems, this@MainActivity)
+                }else {
+                    createToast("Can't find item")
                 }
 
                 isLoading = false

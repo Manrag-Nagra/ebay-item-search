@@ -26,6 +26,8 @@
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:background="#1A6FB1"
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true"
         android:text="@android:string/search_go"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,6 +71,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
         android:background="#1A6FB1"
+        android:foreground="?attr/selectableItemBackground"
         android:text="Free shipping"
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,6 +82,7 @@
         android:layout_width="125dp"
         android:layout_height="38dp"
         android:background="#1A6FB1"
+        android:foreground="?attr/selectableItemBackground"
         android:text="Accept Returns"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toStartOf="@+id/itemInCanadaButton"
@@ -92,9 +96,12 @@
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:background="#1A6FB1"
+        android:foreground="?attr/selectableItemBackground"
         android:text="Items located in Canada"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/itemSearchText" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
