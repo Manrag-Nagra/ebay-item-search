@@ -90,6 +90,7 @@ class MainActivity : AppCompatActivity() {
                 offset = 0
                 noMoreItems = false
                 filterName.remove("maxDeliveryCost:0")
+                spinningIndicator.visibility = View.VISIBLE
                 fetchJSON()
 
             } else {
@@ -111,6 +112,7 @@ class MainActivity : AppCompatActivity() {
                 offset = 0
                 noMoreItems = false
                 filterName.remove("returnsAccepted:true")
+                spinningIndicator.visibility = View.VISIBLE
                 fetchJSON()
 
             } else {
@@ -132,6 +134,7 @@ class MainActivity : AppCompatActivity() {
                 offset = 0
                 noMoreItems = false
                 filterName.remove("itemLocationCountry:CA")
+                spinningIndicator.visibility = View.VISIBLE
                 fetchJSON()
 
             } else {
