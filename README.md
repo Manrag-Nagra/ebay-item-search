@@ -16,4 +16,4 @@ This project connects to eBay's Browse API and uses Kotlin to get a real-time li
 
 
 ## API used
-* [Ebay Browse API](https://developer.ebay.com/api-docs/buy/browse/overview.html)
+* [eBay Browse API](https://developer.ebay.com/api-docs/buy/browse/overview.html)
