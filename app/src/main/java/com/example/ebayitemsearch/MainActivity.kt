@@ -1,13 +1,16 @@
 package com.example.ebayitemsearch
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.PorterDuff
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.ColorInt
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ebayitemsearch.adapter.ebay_item_adapter
@@ -155,7 +158,6 @@ class MainActivity : AppCompatActivity() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-
         val api = retrofit.create(ApiService::class.java)
 
 
@@ -190,7 +192,7 @@ class MainActivity : AppCompatActivity() {
 
                     //send data to adapter
                     listofItems = responseJson.itemSummaries
-                    itemRecycleView.adapter = ebay_item_adapter(listofItems)
+                    itemRecycleView.adapter = ebay_item_adapter(listofItems, this@MainActivity)
                 }
 
                 isLoading = false
