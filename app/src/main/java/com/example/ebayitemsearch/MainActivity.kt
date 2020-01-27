@@ -84,6 +84,7 @@ class MainActivity : AppCompatActivity() {
 
         //When user clicks free shipping button
         freeShippingButton.setOnClickListener {
+            //If already selected or not
             if(freeShippingButton.isSelected){
                 freeShippingButton.setBackgroundColor(Color.parseColor("#1A6FB1"))
                 freeShippingButton.isSelected = false
@@ -106,6 +107,7 @@ class MainActivity : AppCompatActivity() {
 
         //When user clicks accept returns buttons
         acceptReturnsButton.setOnClickListener {
+            //If already selected or not
             if(acceptReturnsButton.isSelected){
                 acceptReturnsButton.setBackgroundColor(Color.parseColor("#1A6FB1"))
                 acceptReturnsButton.isSelected = false
@@ -128,6 +130,7 @@ class MainActivity : AppCompatActivity() {
 
         //When user clicks accept returns buttons
         itemInCanadaButton.setOnClickListener {
+            //If already selected or not
             if(itemInCanadaButton.isSelected){
                 itemInCanadaButton.setBackgroundColor(Color.parseColor("#1A6FB1"))
                 itemInCanadaButton.isSelected = false
