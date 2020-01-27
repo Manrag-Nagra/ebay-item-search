@@ -188,6 +188,7 @@ class MainActivity : AppCompatActivity() {
                 //check to see if response is null
                 if(responseJson?.itemSummaries != null) {
 
+                    //If users scroll to bottom and more items are available
                     if(offset > 0 && responseJson.itemSummaries.last() != listofItems.last()){
                         listofItems.addAll((responseJson.itemSummaries))
                         itemRecycleView.adapter?.notifyDataSetChanged()
