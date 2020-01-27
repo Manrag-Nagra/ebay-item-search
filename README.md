@@ -1,6 +1,6 @@
 # Ebay Item Search
 
-This project connects to eBay's Browse API and uses Kotlin to get a real-time listing of items on ebay.com. Users can search for an item and see the price + shipping, the seller name, and their feedback percentage. The user can then select any item which will directly take them to the item in their browser or to the eBay mobile app (if installed).
+This project connects to eBay's Browse API and uses Kotlin to get a real-time listing of items on ebay.com. Users can search for an item and see the price + shipping, the seller name, and their feedback percentage. The user can then select any item which will directly take them to the item in their browser or to the eBay mobile app (if installed). They can also apply filters such as free shipping, accept returns, and items located in Canada.
 
 
 ## Demo
